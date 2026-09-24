@@ -1,0 +1,1 @@
+<?php http_response_code(410); exit("此修改版请通过备份后替换文件升级，不使用原 HTTP 在线升级器。");

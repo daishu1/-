@@ -1,0 +1,12 @@
+{$DOMAIN} {
+    header Permissions-Policy "geolocation=(self)"
+    header Referrer-Policy "no-referrer"
+    header X-Content-Type-Options "nosniff"
+    @blocked path /install/* /deploy/* /.env /.env.* /.git/* /*.sql /*.zip /Dockerfile /compose.yaml /README* /include/config.php
+    respond @blocked 404
+    @private not path /probe.php /assets/location.js /include/probe_core/gps_where.php /layui/*
+    basic_auth @private {
+        operator {$ADMIN_HASH}
+    }
+    reverse_proxy web:80
+}

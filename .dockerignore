@@ -1,0 +1,6 @@
+README*
+*.zip
+.git
+
+.env
+.env.*
